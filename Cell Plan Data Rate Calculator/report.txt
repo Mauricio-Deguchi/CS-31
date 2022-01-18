@@ -1,0 +1,29 @@
+Mauricio Deguchi
+UID: 405582562
+CS 31
+January 22, 2022
+Project 2 Report
+
+For starters, the initial issue I ran into before starting to code was understanding the math that we were intended to implement from the instructions. Some of the wording was confusing for me to understand at first like the usage of “extra” when talking about the discount for each new line. Once clarification was posted on the discussion board, the math became clear and now iy was time to brainstorm the structure of my code. 
+
+My initial attempt at a solution to this problem involved various nested if-else statements. My idea was to prompt the user with one question at a time and check if their input was valid, if not print the corresponding error message immediately. After nesting a few of blocks, I felt that I was copy pasting code excessively, which led to unreadable, overly complex code. In the future, this could have been cleaned up significantly with functions, but I assumed the restraints of the material we had covered up to this point. My next methodology was successful and followed the following format: 
+- Establish all forefront variables
+- Ask User one question at a time, is the question has an invalid answer & no error message has been assigned, assign the appropriate error message
+- discount variable is an int which is updated depending on the discounts applied per line
+- Once we have all inputs, we calculate the bill using the following equations
+
+Bill=line_rate*lines-discount*lines (+10*(gigabytes-4)/2)
+The section in the parentheses only applies if the user has a prepaid plan and uses more than 4 gigabytes this month. The parentheses work because gigabytes is an integer and we prefer integer math to apply the $10 per 2 gigabytes used rate. 
+- Lastly, before we print out our bill, we must check if we have picked up an error message along the way, if there is no error message we print our success line, otherwise, we print the error message
+
+Lastly, here are a few of the test cases I tried, they all behaved as I expected and other tests were also conducted to validate the calculations prior to starting the report so I do not have record of them. This program also passes 20/20 tests on the CodeBoard. 
+
+Cell Plan Error(“Hello World!”, Yes, No, 1, 15)
+AutoPay Error(“Prepaid”, no, Yes, 2, 14)
+Paperless Billing Error(“Unlimited Elite”, Yes, yes, 2, 14)
+Too Few Lines(“Unlimited Extra”, No, No, 0, 17)
+Too Many Lines(“Unlimited Starter”, Yes, No, 4, 15)
+Negative Gigabytes(“Unlimited Extra”, No, No, 3, -1)
+Too Many Gigabytes(“Unlimited Starter”, No, Yes, 1, 31)
+Gigabytes Edge Case 1(“Prepaid”, Yes, Yes, 2, 0)
+Gigabytes Edge Case 1(“Unlimited Elite”, Yes, No, 1, 30)
